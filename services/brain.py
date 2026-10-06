@@ -125,9 +125,9 @@ def generate_response(message: str, persona: Dict, persona_key: Optional[str] = 
 
     # Determine tier: persona override (Telvin -> OMNI), then env var, then default EB
     env_tier = os.getenv("AI_MODEL_TIER")
-    if persona_key and str(persona_key).lower() == "telvin":
-        tier = "OMNI"
-    else:
+    # if persona_key and str(persona_key).lower() == "telvin":
+    #     tier = "OMNI"
+    # else:
         tier = env_tier or "EB"
 
     system_prompt = build_persona_prompt(persona, tier=tier)
